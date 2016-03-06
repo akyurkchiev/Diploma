@@ -1,0 +1,11 @@
+1. TO finish Registration/Login form:
+
+         - working with the DB - insert, update, read etc
+         - add ID in user table and make the changes in Java file that read from the database - to use the JSP example
+         - to make validation file for password
+         - to make checks for all fields and put css to all error messages
+         - to finish the concept of the whole process - FB login to be added as well redirection to pages based on successful/unsuccessful attempt to register or login
+2. To finish the database design
+3. To implement the view of the site - decide how many pages, technologies etc.
+4. To implement JPA functionality and check if WS can be used
+5. To create CRUD pages for teams, players and bets classification - read directly from DB

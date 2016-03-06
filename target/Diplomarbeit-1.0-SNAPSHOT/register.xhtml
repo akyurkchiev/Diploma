@@ -1,0 +1,143 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Registration form</title>
+        <h:outputStylesheet name="css/style.css" />
+        <h:outputScript name="js/jquery.min.js" />
+        <h:outputScript name="js/script.js" />
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <!--<h:outputStylesheet name="css/style.css" />-->
+        <!--<link href="#{request.contextPath}/css/style.css" rel="stylesheet" type="text/css"/>-->
+        <script src="resources/js/jquery.min.js" type="text/javascript"></script>
+    </h:head>
+    <h:body>
+        <script>
+
+
+        </script>
+        <div class="form">
+            <ul class="tab-group">
+                <li class="tab active"><a href="#signup">Sign Up</a></li>
+                <li class="tab"><a href="#login">Log In</a></li>
+            </ul>
+            <div class="tab-content">
+                <div id="signup">   
+                    <h1>Sign Up for Free</h1>
+                    <h:form>
+                        <br/>
+                        <!--<h2 align="center">User Registration form</h2>-->
+                        <div class="top-row">
+                            <div class="field-wrap">
+                                <h:outputLabel class="req" value="First Name*"/>
+                                <h:inputText class="req" autocomplete="off" value="#{register.firstname}" required="true"
+                                             requiredMessage="First Name is missing or wrong" maxlength="20" label="firstname"
+                                             validator="NameValidator" />
+                                <h:message for="firstname" style="color:red;" />
+                            </div>
+
+                            <div class="field-wrap">
+                                <h:outputLabel class="req" value="Last Name*"/>
+                                <h:inputText class="req" autocomplete="off" value="#{register.lastname}" required="true"
+                                             requiredMessage="Last Name*" maxlength="20" label="lastname"
+                                             validator="NameValidator" />
+                                <h:message for="lastname" style="color:red;" />
+                            </div>
+                        </div>
+
+                        <div class="field-wrap">
+                            <h:outputLabel class="req" value="Email Address*"/>
+                            <h:inputText class="req" autocomplete="off" value="#{register.email}"
+                                         required="true" requiredMessage="Email Address*" label="email"
+                                         maxlength="50" validator="EmailValidator" />
+                            <h:message for="email" style="color:red;" />
+                        </div>
+
+                        <!--to create password validator-->
+                        <!--TODO password validator and password re-type-->
+                        <div class="field-wrap">
+                            <h:outputLabel class="req" value="Set A Password*"/>
+                            <h:inputSecret class="req" autocomplete="off" value="#{register.password}"
+                                           required="true" requiredMessage="Set A Password*" label="password"
+                                           maxlength="15" redisplay="true" />
+                            <h:message for="password" style="color:red;float: right" />
+                            <!--to see if I keep this-->
+                        </div>
+                        <h:commandButton id="btn" class="button button-block" value="Get Started" type="submit" action="#{register.register()}" />
+                    </h:form>
+                </div><!-- sign up form -->
+
+                <!--TODO login form logic-->
+                <div id="login">   
+                    <h1>Welcome Back!</h1>
+
+                    <!--<form action="#" method="post">-->
+                    <h:form>
+
+                        <div class="field-wrap">
+                            <h:outputLabel class="req" value="Email Address*"/>
+                            <h:inputText class="req" autocomplete="off" value=""
+                                         required="true" requiredMessage="Email Address*" label="email"
+                                         maxlength="50" validator="EmailValidator" />
+                            <!--TODO - error messages-->
+                        </div>
+
+                        <div class="field-wrap">
+                            <h:outputLabel class="req" value="Password*"/>
+                            <h:inputSecret class="req" autocomplete="off" value=""
+                                           required="true" requiredMessage="Set A Password*" label="password"
+                                           maxlength="15" redisplay="true" />
+                        </div>
+
+                        <p class="forgot"><a href="#">Forgot Password?</a></p>
+
+                        <h:commandButton id="btn" class="button button-block" value="Log In" type="submit" action="" />
+
+                    </h:form>
+
+                    <!--</form>-->
+                </div> 
+                login form 
+            </div><!-- tab-content -->
+        </div> <!-- /form -->
+    </h:body>
+</html>
+<!--
+       <table align="center" border="1" width="50%" cellpadding="3">
+                            <tr>
+                                <td>First Name:</td>
+                                <td><h:inputText id="firstname" value="#{register.firstname}" required="true"
+                                                 requiredMessage="Enter first name!" label="firstname" maxlength="20"
+                                                 validator="NameValidator" /></td>
+                                <td><h:message for="firstname" style="color:red;" /></td>
+                            </tr>
+                            <tr>
+                                <td>Last Name:</td>
+                                <td><h:inputText id="lastname" value="#{register.lastname}" required="true"
+                                                 requiredMessage="Enter last name!" label="lastname" maxlength="20"
+                                                 validator="NameValidator" /></td>
+                                <td><h:message for="lastname" style="color:red;" /></td>
+                            </tr>
+                            <tr>
+                                <td>Password:</td>
+                                <td><h:inputSecret id="password" value="#{register.password}"
+                                                   required="true" requiredMessage="Enter Password!" label="password"
+                                                   maxlength="15" redisplay="true" /></td>
+                                <td><h:message for="password" style="color:red;" /></td>
+                            </tr>
+                            <tr>
+                                <td>Email:</td>
+                                <td><h:inputText id="email" value="#{register.email}"
+                                                 required="true" requiredMessage="Enter Email!" label="email"
+                                                 maxlength="50" validator="EmailValidator" /></td>
+                                <td><h:message for="email" style="color:red;" /></td>
+                            </tr>
+                            <tr>
+                                <td colspan="3" align="center"><h:commandButton id="btn"
+                                                                                value="Register" type="submit" action="#{register.register()}" /></td>
+                            </tr>
+          </table>-->
